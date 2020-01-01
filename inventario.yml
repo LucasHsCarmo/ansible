@@ -1,0 +1,22 @@
+---
+- hosts: all
+  remote_user: root
+  gather_facts: true
+  
+  tasks:
+  - name: install python-apt
+    apt:
+     name: python-apt
+     state: latest
+  
+  - name: gather the package facts
+    package_facts:
+      manager: auto
+      strategy: all
+  
+  - name: Packages facts and out file out.txt
+    lineinfile:
+      path: ~/ansible/outside.txt
+      line: "{{ ansible_hostname }}, {{ ansible_distribution }}, {{ ansible_distribution_version }}, {{ ansible_all_ipv4_addresses[1] }}"
+    loop:  "{{ ansible_facts.packages | dict2items }}"
+    delegate_to: 127.0.0.1
