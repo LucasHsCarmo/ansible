@@ -16,7 +16,7 @@
   
   - name: Packages facts and out file out.txt
     lineinfile:
-      path: ~/ansible/outside.txt
+      path: ~/ansible/facts/outside.txt
       line: "{{ ansible_hostname }}, {{ ansible_distribution }}, {{ ansible_distribution_version }}, {{ ansible_all_ipv4_addresses[1] }}"
     loop:  "{{ ansible_facts.packages | dict2items }}"
     delegate_to: 127.0.0.1
