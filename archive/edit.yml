@@ -1,0 +1,11 @@
+---
+- hosts: all
+  remote_user: root
+  
+  tasks:
+  - name: 'Teste com um bloco de notas'
+    lineinfile:
+      path: '~/ansible/archive/bora.txt'
+      insertbefore: 'Vamo Vamo'
+      line: 'Corinthians'
+      backup: yes

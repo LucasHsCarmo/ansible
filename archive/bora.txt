@@ -1,0 +1,6 @@
+print("Hello World)
+
+A festa é sua é de quem quiser
+
+Corinthians
+Vamo Vamo
